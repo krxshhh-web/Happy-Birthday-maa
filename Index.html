@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mom ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4, #ff9a9e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background animation */
+@keyframes gradient {
+    0% {background-position: 0%}
+    50% {background-position: 100%}
+    100% {background-position: 0%}
+}
+
+/* Card */
+.container {
+    text-align: center;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 320px;
+    color: white;
+}
+
+/* Glowing title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow: 0 0 10px white;}
+    to {text-shadow: 0 0 20px #fff, 0 0 30px pink;}
+}
+
+/* Cake */
+.cake {
+    font-size: 80px;
+    animation: floatCake 3s ease-in-out infinite;
+}
+
+@keyframes floatCake {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-15px);}
+    100% {transform: translateY(0);}
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 14px;
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    background: white;
+    color: #ff4d6d;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* Floating elements */
+.float {
+    position: absolute;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh); opacity: 1;}
+    100% {transform: translateY(-10vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1> Happy Birthday Maa🎂 </h1>
+    <div class="cake">🎂</div>
+    <button onclick="go()">Surprise 🎁</button>
+</div>
+
+<script>
+function go() {
+    window.location.href = "page2.html";
+}
+
+/* Floating hearts + sparkles */
+setInterval(() => {
+    let el = document.createElement("div");
+    el.className = "float";
+
+    // Random heart or sparkle
+    let items = ["💖","✨","💫"];
+    el.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
